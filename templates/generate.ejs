@@ -1,0 +1,71 @@
+<!-- DO NOT MODIFY THIS FILE -->
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Joke Generator</title>
+    
+    <style>
+        /* Add CSS styles for the textarea */
+        #additionalInfo {
+            border: 2px solid black;
+            /* You can customize other styles here, such as padding, margin, etc. */
+        }
+    </style>
+    
+    
+</head>
+
+<body>
+	<h1>Save joke</h1>
+    <input type="button" onclick=fetchJoke() value="Generate Joke"><br>
+    <form action = "http://localhost:<%= portNumber %>/saveJoke" method = "post" id = "applicationForm" onsubmit="return confirmSubmission()">
+        <fieldset>
+            
+
+            <label for="name"><strong>Name:</strong></label>
+            <input type="text" id="name" name="name" required>
+
+
+            <label for="email"><strong>Email Address:</strong></label>
+            <input type="email" id="email" name="email" required >
+            <br>
+
+            <br>
+            <label for="joke"><strong>The joke to save is:</strong></label>
+            <br>
+            <textarea id="jk" name="joke" rows="7" cols="150"></textarea>
+        </fieldset>
+
+        <br>
+
+        <!-- Add a submit button if needed -->
+        <input type="reset" value="Reset">
+        <input type="submit" value="Save Joke">
+    </form>
+
+    <script>
+        function confirmSubmission() {
+            
+            const confirmationMessage = "Are you sure you want to save your joke?";
+            const userConfirmed = confirm(confirmationMessage);
+        
+            if (userConfirmed) {
+            // Submit the form or perform other actions here if the user confirmed
+            return true;
+            } else {
+            // Cancel form submission
+            return false;
+            }
+        }
+
+        async function fetchJoke() {
+            const response = await fetch('/api/joke');
+            const joke = await response.json();
+            document.getElementById('jk').innerText = `${joke.setup} - ${joke.punchline}`;
+        }
+    </script>
+    <hr>
+    <a href="/">HOME</a>
+</body>

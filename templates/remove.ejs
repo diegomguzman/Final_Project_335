@@ -1,0 +1,34 @@
+<!-- DO NOT MODIFY THIS FILE -->
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Remove jokes</title>
+    <script src="/final.js"></script>
+</head>
+
+<body>
+	<h1>Removing All Jokes</h1>
+    <form action = "http://localhost:<%= portNumber %>/processJokeRemove" method = "post"  id = "removeJokesForm" onsubmit="return confirmSubmission()">
+        
+        <input type="submit" value="Remove all jokes">
+    </form>
+    <script>
+        function confirmSubmission() {
+            
+            const confirmationMessage = "Are you sure you want to remove all jokes from database?";
+            const userConfirmed = confirm(confirmationMessage);
+        
+            if (userConfirmed) {
+            // Submit the form or perform other actions here if the user confirmed
+            return true;
+            } else {
+            // Cancel form submission
+            return false;
+            }
+        }
+    </script>
+    <hr>
+    <a href="/">HOME</a>
+</body>

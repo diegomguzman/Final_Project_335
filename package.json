@@ -1,0 +1,21 @@
+{
+  "name": "final_project",
+  "version": "1.0.0",
+  "description": "Submitted by: Diego Guzman(directory id: dguzman1)\r Group Members: Diego Guzman(dguzman1)\r App Description: \r YouTube Video Link: \r APIs: \r Contact Email: dguzman1@terpmail.umd.edu",
+  "main": "final.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mongodb": "^6.6.2",
+    "path": "^0.12.7"
+  }
+}
