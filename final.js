@@ -15,7 +15,7 @@ if (process.argv.length != 3) {
     process.exit(0);
 }
 const portNumber = process.argv[2];
-console.log(`Web server is running at http://localhost:${portNumber}`);
+console.log(`Web server is running at http://final-project-335-eqgi.onrender.com:${portNumber}`);
 
 const prompt = "Stop to shutdown the server: ";
 process.stdout.write(prompt);
