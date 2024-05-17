@@ -3,7 +3,6 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 require("dotenv").config({path: path.resolve(__dirname, 'credentials/.env') })  
 const databaseAndCollection = {db: "CMSC335_DB", collection:"finalProject"};
 const uri = "mongodb+srv://diego:Diego123@cluster0.lxxtcse.mongodb.net/?retryWrites=true&w=majority&appName=cluster0";
-const apiRoutes = require('./routes/api');
 process.stdin.setEncoding("utf8");
 
 
@@ -42,7 +41,6 @@ const bodyParser = require("body-parser"); /* To handle post parameters */
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
-app.use('/api', apiRoutes);
  /* app is a request handler function */
 app.set("views", path.resolve(__dirname, "templates"));
 app.set("view engine", "ejs");
