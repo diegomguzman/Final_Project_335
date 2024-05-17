@@ -61,9 +61,16 @@
         }
 
         async function fetchJoke() {
-            const response = await fetch('/api/joke');
-            const joke = await response.json();
-            document.getElementById('jk').innerText = `${joke.setup} - ${joke.punchline}`;
+            try {
+                const response = await fetch('/api/joke');
+                const text = await response.text();
+                console.log('Raw response:', text);
+                const joke = await response.json();
+                document.getElementById('jk').innerText = `${joke.setup} - ${joke.punchline}`;
+            } catch (error){
+                console.error('Error fetching joke:', error);
+                document.getElementById('joke').innerText = 'Failed to fetch joke';
+            }
         }
     </script>
     <hr>
